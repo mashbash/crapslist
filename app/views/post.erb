@@ -1,0 +1,21 @@
+<style type="text/css">
+  .container {
+    margin: 20px auto;
+    width: 600px;
+    padding: 0px 20px 20px 20px;
+    border: 1px dotted black;
+  }
+  th {
+    text-align: left;
+  }
+</style>
+
+<div>
+Name: <%= @post.name %><br>
+Description: <%= @post.description %><br>
+Price: <%= @post.price %><br>
+Email: <a href="mailto:<%= @post.email %>?subject=<%= @post.name%>%3A%20I%20want%20it!"><%= @post.email %></a><br>
+
+
+Category: <%= @post.category.name %>
+</div>

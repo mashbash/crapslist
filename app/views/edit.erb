@@ -1,0 +1,53 @@
+<style type="text/css">
+  .container {
+    margin: 20px auto;
+    width: 600px;
+    padding: 0px 20px 20px 20px;
+    border: 1px dotted black;
+  }
+  th {
+    text-align: left;
+  }
+</style>
+
+<div class="container"> 
+EDIT THIS POST:
+  <form action="/post/edit" method="post">
+    <select name="category_id">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <br>
+    <input type="hidden" name="id" value="<%= @post.id %>">
+    <label for="name">Name</label>
+    <br>
+    <input size = "15" type="text" name="name" value="<%=@post.name%>">
+    <br>
+    <label for="description">Message</label>
+    <br>
+    <textarea name="description" rows="10" cols="50"><%=@post.description%></textarea>
+    <br>
+    <label for="price">Price</label>
+    <br>
+    <input size = "10" type="text" name="price" value="<%=@post.price%>">
+    <br>
+    <label for="email">Email</label>
+    <br>
+    <input size = "15" type="text" name="email" value="<%=@post.email%>">
+    <br>
+
+    <input type="submit" value="Save!">  
+  </form> 
+
+  <br> <br>
+
+  <form action="/post/delete" onclick="return confirm('are you sure you want to delete this post FOREVER?')" method="post">
+  <input type="hidden" name="id" value="<%= @post.id %>">
+  <input type="submit" value="delete!">
+  </form> 
+
+
+
+
+</div>

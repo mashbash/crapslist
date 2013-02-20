@@ -1,0 +1,53 @@
+<style type="text/css">
+  .container {
+    margin: 20px auto;
+    width: 600px;
+    padding: 0px 20px 20px 20px;
+    border: 1px dotted black;
+  }
+  th {
+    text-align: left;
+  }
+</style>
+
+<div class="container">
+  <h1>Welcome to Craplist Junior 1.0!</h1>
+  <p>Categories</p>
+  
+  <% @categories.each do |category| %>
+  <a href="/category/<%= category.id %>"><%= category.name %></a><br/>
+  <% end %>
+
+  <div class="form">
+  <form action="/posts/" method="post">
+    <select name="category_id">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <br>
+    <label for="name">Name</label>
+    <br>
+    <input size = "15" type="text" name="name">
+    <br>
+    <label for="description">Message</label>
+    <br>
+    <textarea name="description" rows="10" cols="50"></textarea>
+    <br>
+    <label for="price">Price</label>
+    <br>
+    <input size = "10" type="text" name="price">
+    <br>
+    <label for="email">Email</label>
+    <br>
+    <input size = "15" type="text" name="email">
+    <br>
+
+    <input type="submit">
+  </form>
+  </div>
+
+</div>
+
+<%= @random_string %>
+
